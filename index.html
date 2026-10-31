@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TUTO Foods — a fun sample restaurant website made by a young creator.">
+  <title>TUTO Foods | Made with Love, Served with Joy</title>
+  <style>
+    :root{--orange:#f97316;--orange-dark:#c2410c;--yellow:#facc15;--cream:#fffaf0;--ink:#352516;--muted:#796b5b;--white:#fff;--radius:22px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}button,input,textarea{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}button:focus-visible,a:focus-visible,textarea:focus-visible{outline:3px solid #8b3d00;outline-offset:3px}
+    .container{width:min(1120px,92%);margin:auto}.skip{position:absolute;left:-9999px}.skip:focus{left:1rem;top:1rem;z-index:100;background:white;padding:.5rem}
+    header{position:sticky;top:0;z-index:30;background:#fffdf8ee;backdrop-filter:blur(14px);border-bottom:1px solid #f5e5c9}.nav{display:flex;align-items:center;justify-content:space-between;min-height:78px;gap:1rem}.logo{font-size:1.55rem;font-weight:900;letter-spacing:-.07em;white-space:nowrap}.logo span{color:var(--orange)}.logo .dot{color:var(--yellow)}.nav-links{display:flex;align-items:center;gap:1.65rem}.nav-links a{font-weight:700;font-size:.95rem}.nav-links a:hover,.nav-links a.active{color:var(--orange-dark)}.nav-toggle{display:none;background:white;border:1px solid #efd9b6;border-radius:12px;padding:.5rem .75rem;font-size:1.3rem}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;border:0;border-radius:999px;background:var(--orange);color:white;padding:.9rem 1.45rem;font-weight:800;box-shadow:0 8px 20px #f9731635;transition:transform .2s,background .2s}.btn:hover{background:var(--orange-dark);transform:translateY(-3px)}.btn-outline{background:white;color:var(--orange-dark);border:2px solid #ffd49d;box-shadow:none}.btn-outline:hover{background:#fff0d8}.btn-small{padding:.65rem 1.1rem}
+    .hero{background:radial-gradient(circle at 75% 20%,#ffe488 0,transparent 32%),linear-gradient(125deg,#fff8df,#fff0ce 70%,#ffdf96);overflow:hidden}.hero-inner{min-height:600px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:3rem;padding:5.2rem 0}.eyebrow{display:inline-block;background:#fff1b0;color:#915000;padding:.45rem .85rem;border-radius:999px;font-size:.8rem;font-weight:900;letter-spacing:.04em;text-transform:uppercase}.hero h1{font-size:clamp(2.8rem,6vw,5.3rem);line-height:1.06;letter-spacing:-.065em;margin:1.2rem 0}.hero h1 em{font-style:normal;color:var(--orange)}.hero p{max-width:510px;color:#66503a;font-size:1.12rem}.hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin:1.7rem 0}.hero-stats{display:flex;gap:2rem;margin-top:2.2rem;font-weight:800}.hero-stats small{display:block;color:var(--muted);font-weight:500}.hero-art{position:relative;isolation:isolate;min-height:440px;display:grid;place-items:center}.hero-art:before{content:"";position:absolute;width:94%;aspect-ratio:1;border-radius:50%;background:var(--yellow);z-index:-2;box-shadow:0 25px 0 #ffc06d}.hero-art img{width:94%;height:410px;object-fit:cover;border-radius:46% 54% 44% 56%;border:10px solid #fff5dc;box-shadow:0 20px 55px #a94b1d33}.float{position:absolute;background:white;padding:.7rem 1rem;border-radius:18px;box-shadow:0 12px 35px #a94b1d2c;font-weight:800;animation:bob 4s ease-in-out infinite}.float.one{top:7%;left:-3%}.float.two{bottom:8%;right:-2%;animation-delay:1s}@keyframes bob{50%{transform:translateY(-10px)}}
+    section{padding:5rem 0;scroll-margin-top:78px}.section-heading{text-align:center;margin-bottom:2.5rem}.section-heading h2{font-size:clamp(2rem,4vw,3rem);line-height:1.15;letter-spacing:-.05em;margin:.7rem 0}.section-heading p{color:var(--muted);max-width:600px;margin:auto}.section-tag{color:var(--orange-dark);font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.75rem}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}.card{background:white;border-radius:var(--radius);overflow:hidden;box-shadow:0 12px 35px #5d321010;border:1px solid #f5e9d5;transition:transform .2s}.card:hover{transform:translateY(-5px)}.food-image{height:205px;position:relative;overflow:hidden;background:linear-gradient(135deg,#ffe5ac,#ffac5b);display:grid;place-items:center}.food-image img{height:100%;width:100%;object-fit:cover;transition:transform .3s}.card:hover img{transform:scale(1.06)}.emoji-fallback{font-size:5rem;position:absolute;z-index:0}.food-image img{position:relative;z-index:1}.card-body{padding:1.3rem}.card-body h3{margin:.1rem 0;font-size:1.25rem}.card-body p{color:var(--muted);font-size:.93rem}.card-footer{display:flex;align-items:center;justify-content:space-between;gap:.5rem}.price{font-size:1.25rem;color:var(--orange-dark);font-weight:900}.demo-note{font-size:.83rem;color:var(--muted);text-align:center;margin-top:1.3rem}
+    .about{background:#fff1d8}.about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:3.5rem;align-items:center}.about-visual{min-height:380px;border-radius:32px;background:linear-gradient(135deg,#ffca45,#f97316);display:grid;place-items:center;position:relative;overflow:hidden}.about-visual img{height:100%;width:100%;object-fit:cover;position:absolute;inset:0}.about-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,#3b220d66)}.about-visual strong{position:absolute;bottom:1.5rem;left:1.5rem;z-index:2;color:white;font-size:1.6rem;text-shadow:0 2px 8px #0008}.about-copy h2{font-size:clamp(2rem,4vw,3rem);line-height:1.15;letter-spacing:-.04em}.about-copy p{color:#66503a}.features{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-top:1.5rem}.feature{display:flex;align-items:center;gap:.6rem;font-weight:800}.feature span{background:white;border-radius:12px;padding:.55rem}
+    .filters{display:flex;justify-content:center;gap:.6rem;flex-wrap:wrap;margin-bottom:2rem}.filter{border:2px solid #f6d6a4;background:white;color:#815026;border-radius:999px;padding:.6rem 1.1rem;font-weight:800}.filter.active,.filter:hover{background:var(--orange);border-color:var(--orange);color:white}.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.gallery-item{border:0;padding:0;border-radius:20px;overflow:hidden;position:relative;min-height:220px;background:#ffcd77;text-align:left}.gallery-item img{height:240px;width:100%;object-fit:cover;transition:transform .25s}.gallery-item:hover img{transform:scale(1.08)}.gallery-item span{position:absolute;bottom:0;left:0;right:0;padding:1.2rem;color:white;font-weight:900;background:linear-gradient(transparent,#23180bba)}.gallery-item[hidden]{display:none}
+    .contact{background:linear-gradient(130deg,#fff1cb,#ffe7a4)}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}.contact-panel{background:white;padding:2rem;border-radius:25px;box-shadow:0 15px 40px #b45e1215}.contact-panel h3{margin-top:0;font-size:1.5rem}.contact-panel p{color:var(--muted)}.contact-line{padding:.9rem 0;border-bottom:1px solid #f7e7cc}.feedback label{display:block;font-weight:800;margin-bottom:.45rem}.feedback textarea{width:100%;border:2px solid #eed9b8;border-radius:14px;padding:1rem;resize:vertical;min-height:115px}.feedback .btn{margin-top:.8rem}.message{margin-top:.9rem;color:#166534;font-weight:800;min-height:1.4em}.contact-note{font-size:.85rem}
+    footer{background:#352516;color:#fff5df;padding:2.5rem 0}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}footer .logo span{color:#ffad64}footer p{color:#f2d8ae;font-size:.9rem}
+    dialog{border:0;border-radius:20px;padding:1rem;max-width:min(600px,92vw);box-shadow:0 25px 100px #0007}dialog::backdrop{background:#000a}dialog img{max-height:65vh;max-width:100%;border-radius:12px;object-fit:contain}.modal-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:.5rem}.modal-head button{border:0;background:#ffead2;border-radius:10px;padding:.45rem .7rem}
+    @media(max-width:800px){.hero-inner,.about-grid,.contact-grid{grid-template-columns:1fr}.hero-inner{padding:3.5rem 0}.hero-art{min-height:350px}.hero-art img{height:330px}.cards,.gallery{grid-template-columns:repeat(2,1fr)}.nav-toggle{display:block}.nav-links{display:none;position:absolute;top:78px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#fffdf8;padding:.6rem 4%;border-bottom:1px solid #f5e5c9;box-shadow:0 12px 24px #0001}.nav-links.open{display:flex}.nav-links a{padding:.85rem}.hero-stats{gap:1rem}}
+    @media(max-width:520px){section{padding:3.7rem 0}.cards,.gallery{grid-template-columns:1fr}.hero h1{font-size:2.9rem}.hero-art{min-height:300px}.hero-art img{height:285px}.float{font-size:.8rem}.features{grid-template-columns:1fr}.contact-panel{padding:1.3rem}.hero-stats{flex-wrap:wrap}.gallery-item img{height:230px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header>
+    <nav class="container nav" aria-label="Main navigation">
+      <a class="logo" href="#home" aria-label="TUTO Foods home">TUTO<span>Foods</span><span class="dot">.</span></a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a><a href="#menu">Menu</a><a href="#about">About</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <!-- HOME PAGE SECTION -->
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <div>
+          <span class="eyebrow">🍽️ Fresh food, happy mood</span>
+          <h1>Big flavour.<br><em>Big smiles.</em><br>That's TUTO!</h1>
+          <p>Welcome to TUTO Foods — where every bite is a little celebration! Explore our colourful menu and discover your next favourite meal.</p>
+          <div class="hero-actions"><a class="btn" href="#menu">Explore our menu →</a><a class="btn btn-outline" href="#about">Our story</a></div>
+          <div class="hero-stats"><div>🍔 Tasty meals<small>Made to make you smile</small></div><div>🌈 Fun flavours<small>Something for everyone</small></div></div>
+        </div>
+        <div class="hero-art">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=85" alt="Juicy burger with lettuce, tomato and cheese">
+          <div class="float one">😋 So delicious!</div><div class="float two">✨ Fresh & colourful</div>
+        </div>
+      </div>
+    </section>
+    <!-- MENU SECTION -->
+    <section id="menu">
+      <div class="container">
+        <div class="section-heading"><span class="section-tag">Our favourites</span><h2>Food that makes you happy</h2><p>Take a look at some delicious ideas from our sample menu.</p></div>
+        <div class="cards">
+          <article class="card"><div class="food-image"><span class="emoji-fallback">🍔</span><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Cheeseburger" loading="lazy"></div><div class="card-body"><h3>Happy Burger</h3><p>A juicy burger with fresh vegetables and tasty sauce.</p><div class="card-footer"><span class="price">£6.50</span><a href="#contact" class="btn btn-small">Ask us →</a></div></div></article>
+          <article class="card"><div class="food-image"><span class="emoji-fallback">🍕</span><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Pizza topped with cheese and vegetables" loading="lazy"></div><div class="card-body"><h3>Sunshine Pizza</h3><p>Cheesy pizza with a golden crust and colourful toppings.</p><div class="card-footer"><span class="price">£8.00</span><a href="#contact" class="btn btn-small">Ask us →</a></div></div></article>
+          <article class="card"><div class="food-image"><span class="emoji-fallback">🥗</span><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80" alt="Fresh colourful salad" loading="lazy"></div><div class="card-body"><h3>Rainbow Salad</h3><p>A fresh, crunchy bowl packed with bright vegetables.</p><div class="card-footer"><span class="price">£5.00</span><a href="#contact" class="btn btn-small">Ask us →</a></div></div></article>
+        </div>
+        <p class="demo-note">This is a practice website. Menu items and prices are examples, not real offers.</p>
+      </div>
+    </section>
+    <!-- ABOUT PAGE SECTION -->
+    <section id="about" class="about">
+      <div class="container about-grid">
+        <div class="about-visual"><img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=900&q=85" alt="Welcoming restaurant dining area" loading="lazy"><strong>Good food. Great moments. ❤️</strong></div>
+        <div class="about-copy"><span class="section-tag">About TUTO Foods</span><h2>We believe food should be fun!</h2><p>TUTO Foods is a pretend restaurant created as a website-building project. Our big idea is simple: bring people together with colourful, delicious-looking food and a friendly atmosphere.</p><p>We want every visitor to feel welcome. From burgers to fresh salads, there is something to explore and enjoy.</p><div class="features"><div class="feature"><span>🍅</span>Fresh ideas</div><div class="feature"><span>💛</span>Made with care</div><div class="feature"><span>🎉</span>Fun atmosphere</div><div class="feature"><span>🌟</span>Big smiles</div></div></div>
+      </div>
+    </section>
+    <!-- GALLERY PAGE SECTION -->
+    <section id="gallery">
+      <div class="container">
+        <div class="section-heading"><span class="section-tag">Food gallery</span><h2>A feast for your eyes</h2><p>Choose a category to explore the pictures. Click any picture to make it bigger!</p></div>
+        <div class="filters" role="group" aria-label="Filter gallery">
+          <button class="filter active" type="button" data-filter="all" aria-pressed="true">All food</button><button class="filter" type="button" data-filter="meals" aria-pressed="false">Meals</button><button class="filter" type="button" data-filter="treats" aria-pressed="false">Treats</button><button class="filter" type="button" data-filter="healthy" aria-pressed="false">Healthy</button>
+        </div>
+        <div class="gallery">
+          <button class="gallery-item" type="button" data-category="meals" data-title="Tasty Burger"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80" alt="Tasty burger" loading="lazy"><span>Tasty Burger 🍔</span></button>
+          <button class="gallery-item" type="button" data-category="meals" data-title="Pizza Party"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=700&q=80" alt="Pizza" loading="lazy"><span>Pizza Party 🍕</span></button>
+          <button class="gallery-item" type="button" data-category="healthy" data-title="Rainbow Salad"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=700&q=80" alt="Rainbow salad" loading="lazy"><span>Rainbow Salad 🥗</span></button>
+          <button class="gallery-item" type="button" data-category="treats" data-title="Sweet Pancakes"><img src="https://images.unsplash.com/photo-1528207776546-365bb710ee93?auto=format&fit=crop&w=700&q=80" alt="Stack of pancakes" loading="lazy"><span>Sweet Pancakes 🥞</span></button>
+          <button class="gallery-item" type="button" data-category="treats" data-title="Cool Ice Cream"><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=700&q=80" alt="Ice cream dessert" loading="lazy"><span>Cool Ice Cream 🍨</span></button>
+          <button class="gallery-item" type="button" data-category="healthy" data-title="Fruit Bowl"><img src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=700&q=80" alt="Fresh colourful fruit" loading="lazy"><span>Fruit Bowl 🍓</span></button>
+        </div>
+      </div>
+    </section>
+    <!-- CONTACT PAGE SECTION -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-heading"><span class="section-tag">Say hello</span><h2>Let's talk food!</h2><p>This is a safe practice contact section. You don't need to enter your name, email or phone number.</p></div>
+        <div class="contact-grid">
+          <div class="contact-panel"><h3>Welcome to TUTO Foods 👋</h3><p>We love sharing tasty ideas and making visitors smile.</p><div class="contact-line">🍔 <strong>Favourite thing:</strong> Delicious food</div><div class="contact-line">🎨 <strong>Website colours:</strong> Orange and yellow</div><div class="contact-line">💻 <strong>Created with:</strong> HTML, CSS and JavaScript</div><p class="contact-note">This is a learning project, not a real restaurant. No orders or messages are sent.</p></div>
+          <div class="contact-panel feedback"><h3>Leave a happy message 💌</h3><p>Write something kind about the website. Your message stays on this page only and is not sent or saved.</p><form id="feedbackForm"><label for="feedback">Your message (no personal details)</label><textarea id="feedback" maxlength="200" placeholder="I love the colourful food pictures!" required></textarea><button class="btn" type="submit">Show my message ✨</button><div class="message" id="message" role="status" aria-live="polite"></div></form></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="container footer-inner"><div><a class="logo" href="#home">TUTO<span>Foods</span><span class="dot">.</span></a><p>Made with creativity, kindness and a little bit of code. 🧡</p></div><p>© <span id="year"></span> TUTO Foods · Student practice project</p></div></footer>
+  <dialog id="galleryDialog" aria-labelledby="dialogTitle"><div class="modal-head"><strong id="dialogTitle">Food picture</strong><button type="button" id="closeDialog" aria-label="Close picture">✕ Close</button></div><img id="dialogImage" alt=""></dialog>
+  <script>
+    // MOBILE MENU: open and close the menu on small screens.
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.textContent = isOpen ? '✕' : '☰';
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open'); navToggle.setAttribute('aria-expanded', 'false'); navToggle.textContent = '☰';
+    }));
+    // GALLERY FILTERS: show pictures in the selected category.
+    const filters = document.querySelectorAll('.filter');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    filters.forEach(button => button.addEventListener('click', () => {
+      const category = button.dataset.filter;
+      filters.forEach(filter => { const selected = filter === button; filter.classList.toggle('active', selected); filter.setAttribute('aria-pressed', String(selected)); });
+      galleryItems.forEach(item => { item.hidden = category !== 'all' && item.dataset.category !== category; });
+    }));
+    // PICTURE POPUP: click a gallery picture to view it bigger.
+    const dialog = document.getElementById('galleryDialog');
+    const dialogImage = document.getElementById('dialogImage');
+    galleryItems.forEach(item => item.addEventListener('click', () => {
+      const img = item.querySelector('img');
+      dialogImage.src = img.src; dialogImage.alt = img.alt;
+      document.getElementById('dialogTitle').textContent = item.dataset.title;
+      if (typeof dialog.showModal === 'function') dialog.showModal();
+    }));
+    document.getElementById('closeDialog').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+    // DEMO CONTACT FORM: no data is sent anywhere.
+    document.getElementById('feedbackForm').addEventListener('submit', event => {
+      event.preventDefault();
+      const message = document.getElementById('feedback').value.trim();
+      if (message) document.getElementById('message').textContent = '🎉 Your message: ' + message;
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
